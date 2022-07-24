@@ -105,8 +105,10 @@ requirements:
     - sed   # [unix]
     - gawk  # [unix]
     - llvm-tools  # [osx]
+    - binutils    # [linux]
     - ldid  # [osx]
   host:
+    - binutils    # [linux]
     - llvmdev     # [osx]
     - clangdev    # [osx]
     - llvm-tools  # [osx]
