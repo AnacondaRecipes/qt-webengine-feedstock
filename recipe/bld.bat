@@ -22,6 +22,8 @@ set PATH=%cd%\jom;%PATH%
 set GNUWIN32_PATH=%SRC_DIR%\gnuwin32
 SET PATH=%SRC_DIR%\gnuwin32\gnuwin32\bin;%SRC_DIR%\gnuwin32\bin;%PATH%
 
+perl.exe "%LIBRARY_BIN%"/syncqt.pl -version 5.15.9
+
 mkdir b2
 pushd b2
 
