@@ -1102,8 +1102,8 @@ Index: qtwebengine/src/3rdparty/chromium/base/win/win_util.cc
 +// Platform-specific code for Win32.
 +#undef NTDDI_VERSION
 +#undef _WIN32_WINNT
-+#define NTDDI_VERSION 0xA00
-+#define _WIN32_WINNT 0xa00
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
 +
  #include "base/win/win_util.h"
  
@@ -1211,3 +1211,1705 @@ Index: qtwebengine/src/3rdparty/chromium/build/config/win/BUILD.gn
  
      # We can't say `=_WIN32_WINNT_WIN10` here because some files do
      # `#if WINVER < 0x0600` without including windows.h before,
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/screen_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/screen_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/screen_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/screen_win.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/base_window_finder_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/base_window_finder_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/base_window_finder_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/base_window_finder_win.h"
+ 
+ #include <objbase.h>
+@@ -27,4 +33,4 @@ BOOL CALLBACK BaseWindowFinderWin::Windo
+ }
+ 
+ }  // namespace win
+-}  // namespace display
+\ No newline at end of file
++}  // namespace display
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/local_process_window_finder_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/local_process_window_finder_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/local_process_window_finder_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/local_process_window_finder_win.h"
+ 
+ #include "base/win/windows_version.h"
+@@ -64,4 +70,4 @@ LocalProcessWindowFinder::LocalProcessWi
+ LocalProcessWindowFinder::~LocalProcessWindowFinder() = default;
+ 
+ }  // namespace win
+-}  // namespace display
+\ No newline at end of file
++}  // namespace display
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/screen_win_display.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/screen_win_display.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/screen_win_display.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/screen_win_display.h"
+ 
+ #include "ui/display/win/display_info.h"
+Index: qtwebengine/src/3rdparty/chromium/components/os_crypt/os_crypt_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/components/os_crypt/os_crypt_win.cc
++++ qtwebengine/src/3rdparty/chromium/components/os_crypt/os_crypt_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include <windows.h>
+ 
+ #include "base/base64.h"
+Index: qtwebengine/src/3rdparty/chromium/components/storage_monitor/storage_monitor_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/components/storage_monitor/storage_monitor_win.cc
++++ qtwebengine/src/3rdparty/chromium/components/storage_monitor/storage_monitor_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "components/storage_monitor/storage_monitor_win.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/components/storage_monitor/volume_mount_watcher_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/components/storage_monitor/volume_mount_watcher_win.cc
++++ qtwebengine/src/3rdparty/chromium/components/storage_monitor/volume_mount_watcher_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "components/storage_monitor/volume_mount_watcher_win.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/components/system_media_controls/win/system_media_controls_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/components/system_media_controls/win/system_media_controls_win.cc
++++ qtwebengine/src/3rdparty/chromium/components/system_media_controls/win/system_media_controls_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "components/system_media_controls/win/system_media_controls_win.h"
+ 
+ #include <systemmediatransportcontrolsinterop.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/cursor.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/cursor.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/cursor.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/cursor.h"
+ 
+ #include <algorithm>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/d3d_device.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/d3d_device.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/d3d_device.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/d3d_device.h"
+ 
+ #include <utility>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/desktop.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/desktop.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/desktop.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/desktop.h"
+ 
+ #include <vector>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_adapter_duplicator.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_adapter_duplicator.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_adapter_duplicator.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/dxgi_adapter_duplicator.h"
+ 
+ #include <comdef.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_context.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_context.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_context.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/dxgi_context.h"
+ 
+ #include "modules/desktop_capture/win/dxgi_duplicator_controller.h"
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_duplicator_controller.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_duplicator_controller.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_duplicator_controller.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/dxgi_duplicator_controller.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_frame.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_frame.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_frame.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/dxgi_frame.h"
+ 
+ #include <string.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_output_duplicator.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_output_duplicator.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_output_duplicator.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/dxgi_output_duplicator.h"
+ 
+ #include <dxgi.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/dxgi_texture.h"
+ 
+ #include <comdef.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture_mapping.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture_mapping.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture_mapping.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/dxgi_texture_mapping.h"
+ 
+ #include <comdef.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture_staging.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture_staging.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/dxgi_texture_staging.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/dxgi_texture_staging.h"
+ 
+ #include <comdef.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/full_screen_win_application_handler.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/full_screen_win_application_handler.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/full_screen_win_application_handler.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/full_screen_win_application_handler.h"
+ #include <algorithm>
+ #include <cwctype>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/scoped_thread_desktop.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/scoped_thread_desktop.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/scoped_thread_desktop.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/scoped_thread_desktop.h"
+ 
+ #include "modules/desktop_capture/win/desktop.h"
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capture_utils.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capture_utils.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capture_utils.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/screen_capture_utils.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_directx.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_directx.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_directx.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/screen_capturer_win_directx.h"
+ 
+ #include <algorithm>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_gdi.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_gdi.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_gdi.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/screen_capturer_win_gdi.h"
+ 
+ #include <utility>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_magnifier.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_magnifier.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/screen_capturer_win_magnifier.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/screen_capturer_win_magnifier.h"
+ 
+ #include <utility>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/selected_window_context.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/selected_window_context.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/selected_window_context.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/selected_window_context.h"
+ 
+ namespace webrtc {
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capture_utils.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capture_utils.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capture_utils.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/window_capture_utils.h"
+ 
+ // Just for the DWMWINDOWATTRIBUTE enums (DWMWA_CLOAKED).
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capturer_win_gdi.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capturer_win_gdi.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capturer_win_gdi.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/window_capturer_win_gdi.h"
+ 
+ #include <cmath>
+Index: qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capturer_win_wgc.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capturer_win_wgc.cc
++++ qtwebengine/src/3rdparty/chromium/third_party/webrtc/modules/desktop_capture/win/window_capturer_win_wgc.cc
+@@ -8,6 +8,12 @@
+  *  be found in the AUTHORS file in the root of the source tree.
+  */
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "modules/desktop_capture/win/window_capturer_win_wgc.h"
+ 
+ #include <memory>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/ime/win/imm32_manager.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/ime/win/imm32_manager.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/ime/win/imm32_manager.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/ime/win/imm32_manager.h"
+ 
+ #include <stdint.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/ime/win/input_method_win_base.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/ime/win/input_method_win_base.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/ime/win/input_method_win_base.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/ime/win/input_method_win_base.h"
+ 
+ #include <stddef.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/ime/win/input_method_win_imm32.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/ime/win/input_method_win_imm32.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/ime/win/input_method_win_imm32.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/ime/win/input_method_win_imm32.h"
+ 
+ #include <stddef.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/ime/win/input_method_win_tsf.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/ime/win/input_method_win_tsf.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/ime/win/input_method_win_tsf.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/ime/win/input_method_win_tsf.h"
+ 
+ #include "ui/base/ime/input_method_keyboard_controller.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/ime/win/on_screen_keyboard_display_manager_input_pane.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/ime/win/on_screen_keyboard_display_manager_input_pane.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/ime/win/on_screen_keyboard_display_manager_input_pane.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/ime/win/on_screen_keyboard_display_manager_input_pane.h"
+ 
+ #include "base/bind.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/pointer/pointer_device_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/pointer/pointer_device_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/pointer/pointer_device_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/pointer/pointer_device.h"
+ 
+ #include "base/check_op.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/resource/resource_bundle_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/resource/resource_bundle_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/resource/resource_bundle_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/resource/resource_bundle_win.h"
+ 
+ #include "base/path_service.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/resource/resource_data_dll_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/resource/resource_data_dll_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/resource/resource_data_dll_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/resource/resource_data_dll_win.h"
+ 
+ #include <stddef.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/accessibility_misc_utils.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/accessibility_misc_utils.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/accessibility_misc_utils.cc
+@@ -1,6 +1,13 @@
+ // Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
++
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/accessibility_misc_utils.h"
+ 
+ #include "base/check.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/event_creation_utils.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/event_creation_utils.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/event_creation_utils.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/event_creation_utils.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/foreground_helper.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/foreground_helper.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/foreground_helper.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/foreground_helper.h"
+ 
+ #include "base/logging.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/hidden_window.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/hidden_window.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/hidden_window.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/hidden_window.h"
+ 
+ #include "base/notreached.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/hwnd_metrics.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/hwnd_metrics.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/hwnd_metrics.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/hwnd_metrics.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/hwnd_subclass.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/hwnd_subclass.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/hwnd_subclass.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/hwnd_subclass.h"
+ 
+ #include <algorithm>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/internal_constants.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/internal_constants.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/internal_constants.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/internal_constants.h"
+ 
+ namespace ui {
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/lock_state.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/lock_state.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/lock_state.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/lock_state.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/message_box_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/message_box_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/message_box_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/message_box_win.h"
+ 
+ #include "base/i18n/rtl.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/mouse_wheel_util.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/mouse_wheel_util.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/mouse_wheel_util.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/mouse_wheel_util.h"
+ 
+ #include "base/auto_reset.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/scoped_ole_initializer.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/scoped_ole_initializer.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/scoped_ole_initializer.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/scoped_ole_initializer.h"
+ 
+ #include <ole2.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/session_change_observer.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/session_change_observer.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/session_change_observer.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/session_change_observer.h"
+ 
+ #include <wtsapi32.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/shell.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/shell.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/shell.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/shell.h"
+ 
+ #include <dwmapi.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/touch_input.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/touch_input.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/touch_input.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/touch_input.h"
+ #include "base/win/win_util.h"
+ 
+Index: qtwebengine/src/3rdparty/chromium/ui/base/win/window_event_target.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/base/win/window_event_target.cc
++++ qtwebengine/src/3rdparty/chromium/ui/base/win/window_event_target.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/base/win/window_event_target.h"
+ 
+ namespace ui {
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_adapter_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_adapter_win.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_adapter_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_adapter_win.h"
+ 
+ #include <memory>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_adapter_winrt.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_adapter_winrt.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_adapter_winrt.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_adapter_winrt.h"
+ 
+ #include <windows.foundation.collections.h>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_advertisement_winrt.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_advertisement_winrt.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_advertisement_winrt.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_advertisement_winrt.h"
+ 
+ #include <windows.foundation.collections.h>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_classic_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_classic_win.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_classic_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_classic_win.h"
+ 
+ #include "base/threading/scoped_thread_priority.h"
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_device_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_device_win.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_device_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_device_win.h"
+ 
+ #include <string>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_device_winrt.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_device_winrt.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_device_winrt.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_device_winrt.h"
+ 
+ #include <windows.devices.enumeration.h>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_gatt_discoverer_winrt.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_gatt_discoverer_winrt.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_gatt_discoverer_winrt.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_gatt_discoverer_winrt.h"
+ 
+ #include <windows.foundation.collections.h>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_init_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_init_win.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_init_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_init_win.h"
+ 
+ #include "base/threading/scoped_thread_priority.h"
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_defs_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_defs_win.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_defs_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_low_energy_defs_win.h"
+ 
+ #include <cfg.h>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_win.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_low_energy_win.h"
+ 
+ #include <memory>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_win_fake.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_win_fake.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_low_energy_win_fake.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_low_energy_win_fake.h"
+ 
+ #include <memory>
+Index: qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_remote_gatt_descriptor_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/device/bluetooth/bluetooth_remote_gatt_descriptor_win.cc
++++ qtwebengine/src/3rdparty/chromium/device/bluetooth/bluetooth_remote_gatt_descriptor_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "device/bluetooth/bluetooth_remote_gatt_descriptor_win.h"
+ 
+ #include "base/bind.h"
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/audio_device_listener_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/audio_device_listener_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/audio_device_listener_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/audio_device_listener_win.h"
+ 
+ #include <Audioclient.h>
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/audio_low_latency_input_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/audio_low_latency_input_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/audio_low_latency_input_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/audio_low_latency_input_win.h"
+ 
+ #include <objbase.h>
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/audio_low_latency_output_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/audio_low_latency_output_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/audio_low_latency_output_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/audio_low_latency_output_win.h"
+ 
+ #include <Functiondiscoverykeys_devpkey.h>
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/audio_manager_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/audio_manager_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/audio_manager_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/audio_manager_win.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/audio_session_event_listener_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/audio_session_event_listener_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/audio_session_event_listener_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/audio_session_event_listener_win.h"
+ 
+ #include "base/logging.h"
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/avrt_wrapper_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/avrt_wrapper_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/avrt_wrapper_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/avrt_wrapper_win.h"
+ 
+ #include "base/check.h"
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/core_audio_util_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/core_audio_util_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/core_audio_util_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/core_audio_util_win.h"
+ 
+ #include <comdef.h>
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/device_enumeration_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/device_enumeration_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/device_enumeration_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/device_enumeration_win.h"
+ 
+ #include <MMDeviceAPI.h>
+Index: qtwebengine/src/3rdparty/chromium/media/audio/win/waveout_output_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/audio/win/waveout_output_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/audio/win/waveout_output_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/audio/win/waveout_output_win.h"
+ 
+ #include <atomic>
+Index: qtwebengine/src/3rdparty/chromium/media/base/win/d3d11_mocks.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/base/win/d3d11_mocks.cc
++++ qtwebengine/src/3rdparty/chromium/media/base/win/d3d11_mocks.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/base/win/d3d11_mocks.h"
+ 
+ namespace media {
+@@ -50,4 +56,4 @@ D3D11VideoProcessorEnumeratorMock::~D3D1
+ D3D11DeviceContextMock::D3D11DeviceContextMock() = default;
+ D3D11DeviceContextMock::~D3D11DeviceContextMock() = default;
+ 
+-}  // namespace media
+\ No newline at end of file
++}  // namespace media
+Index: qtwebengine/src/3rdparty/chromium/media/base/win/hresult_status_helper.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/base/win/hresult_status_helper.cc
++++ qtwebengine/src/3rdparty/chromium/media/base/win/hresult_status_helper.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/base/win/hresult_status_helper.h"
+ 
+ #include "base/logging.h"
+Index: qtwebengine/src/3rdparty/chromium/media/base/win/mf_helpers.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/base/win/mf_helpers.cc
++++ qtwebengine/src/3rdparty/chromium/media/base/win/mf_helpers.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/base/win/mf_helpers.h"
+ 
+ #include "base/check_op.h"
+Index: qtwebengine/src/3rdparty/chromium/media/base/win/mf_initializer.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/base/win/mf_initializer.cc
++++ qtwebengine/src/3rdparty/chromium/media/base/win/mf_initializer.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/base/win/mf_initializer.h"
+ 
+ #include <mfapi.h>
+Index: qtwebengine/src/3rdparty/chromium/media/base/win/mf_mocks.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/base/win/mf_mocks.cc
++++ qtwebengine/src/3rdparty/chromium/media/base/win/mf_mocks.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/base/win/mf_mocks.h"
+ 
+ namespace media {
+Index: qtwebengine/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm.cc
++++ qtwebengine/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/cdm/win/media_foundation_cdm.h"
+ 
+ #include <stdlib.h>
+Index: qtwebengine/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm_factory.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm_factory.cc
++++ qtwebengine/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm_factory.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/cdm/win/media_foundation_cdm_factory.h"
+ 
+ #include <combaseapi.h>
+Index: qtwebengine/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm_session.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm_session.cc
++++ qtwebengine/src/3rdparty/chromium/media/cdm/win/media_foundation_cdm_session.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/cdm/win/media_foundation_cdm_session.h"
+ 
+ #include <memory>
+Index: qtwebengine/src/3rdparty/chromium/media/device_monitors/system_message_window_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/device_monitors/system_message_window_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/device_monitors/system_message_window_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/device_monitors/system_message_window_win.h"
+ 
+ #include <dbt.h>
+Index: qtwebengine/src/3rdparty/chromium/media/gpu/windows/dxva_picture_buffer_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/gpu/windows/dxva_picture_buffer_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/gpu/windows/dxva_picture_buffer_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/gpu/windows/dxva_picture_buffer_win.h"
+ 
+ #include "base/metrics/histogram_functions.h"
+Index: qtwebengine/src/3rdparty/chromium/media/gpu/windows/dxva_video_decode_accelerator_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/gpu/windows/dxva_video_decode_accelerator_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/gpu/windows/dxva_video_decode_accelerator_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/gpu/windows/dxva_video_decode_accelerator_win.h"
+ 
+ #include <algorithm>
+Index: qtwebengine/src/3rdparty/chromium/media/gpu/windows/hresult_status_debug_device.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/gpu/windows/hresult_status_debug_device.cc
++++ qtwebengine/src/3rdparty/chromium/media/gpu/windows/hresult_status_debug_device.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/gpu/windows/hresult_status_debug_device.h"
+ #include "media/base/media_serializers.h"
+ #include "media/base/win/hresult_status_helper.h"
+Index: qtwebengine/src/3rdparty/chromium/media/gpu/windows/init_guid.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/gpu/windows/init_guid.cc
++++ qtwebengine/src/3rdparty/chromium/media/gpu/windows/init_guid.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ // This is defined here to ensure the D3D11, D3D9, and DXVA includes have their
+ // GUIDs intialized.
+ #define INITGUID
+Index: qtwebengine/src/3rdparty/chromium/media/gpu/windows/media_foundation_video_encode_accelerator_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/gpu/windows/media_foundation_video_encode_accelerator_win.cc
++++ qtwebengine/src/3rdparty/chromium/media/gpu/windows/media_foundation_video_encode_accelerator_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/gpu/windows/media_foundation_video_encode_accelerator_win.h"
+ 
+ #pragma warning(push)
+Index: qtwebengine/src/3rdparty/chromium/media/gpu/windows/supported_profile_helpers.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/media/gpu/windows/supported_profile_helpers.cc
++++ qtwebengine/src/3rdparty/chromium/media/gpu/windows/supported_profile_helpers.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "media/gpu/windows/supported_profile_helpers.h"
+ 
+ #include <algorithm>
+@@ -11,6 +17,7 @@
+ 
+ #include <d3d9.h>
+ #include <dxva2api.h>
++#include <dxva.h>
+ 
+ #include "base/feature_list.h"
+ #include "base/trace_event/trace_event.h"
+@@ -18,6 +25,15 @@
+ #include "media/base/media_switches.h"
+ #include "media/gpu/windows/av1_guids.h"
+ 
++extern "C" {
++/* AV1 decoder GUIDs */
++DEFINE_GUID(DXVA_ModeAV1_VLD_Profile0,           0xb8be4ccb, 0xcf53, 0x46ba, 0x8d, 0x59, 0xd6, 0xb8, 0xa6, 0xda, 0x5d, 0x2a);
++DEFINE_GUID(DXVA_ModeAV1_VLD_Profile1,           0x6936ff0f, 0x45b1, 0x4163, 0x9c, 0xc1, 0x64, 0x6e, 0xf6, 0x94, 0x61, 0x08);
++DEFINE_GUID(DXVA_ModeAV1_VLD_Profile2,           0x0c5f2aa1, 0xe541, 0x4089, 0xbb, 0x7b, 0x98, 0x11, 0x0a, 0x19, 0xd7, 0xc8);
++DEFINE_GUID(DXVA_ModeAV1_VLD_12bit_Profile2,     0x17127009, 0xa00f, 0x4ce1, 0x99, 0x4e, 0xbf, 0x40, 0x81, 0xf6, 0xf3, 0xf0);
++DEFINE_GUID(DXVA_ModeAV1_VLD_12bit_Profile2_420, 0x2d80bed6, 0x9cac, 0x4835, 0x9e, 0x91, 0x32, 0x7b, 0xbc, 0x4f, 0x9e, 0xe8);
++}
++
+ namespace {
+ 
+ // R600, R700, Evergreen and Cayman AMD cards. These support DXVA via UVD3
+Index: qtwebengine/src/3rdparty/chromium/ui/aura/native_window_occlusion_tracker_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/aura/native_window_occlusion_tracker_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/aura/native_window_occlusion_tracker_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/aura/native_window_occlusion_tracker_win.h"
+ 
+ #include <dwmapi.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/aura_extra/window_occlusion_impl_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/aura_extra/window_occlusion_impl_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/aura_extra/window_occlusion_impl_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/aura_extra/window_occlusion_impl_win.h"
+ 
+ #include "base/metrics/histogram_macros.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/color/win/native_color_mixers.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/color/win/native_color_mixers.cc
++++ qtwebengine/src/3rdparty/chromium/ui/color/win/native_color_mixers.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/color/color_mixers.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/color_profile_reader.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/color_profile_reader.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/color_profile_reader.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/color_profile_reader.h"
+ 
+ #include <stddef.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/display_info.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/display_info.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/display_info.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/display_info.h"
+ 
+ #include "base/hash/hash.h"
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/dpi.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/dpi.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/dpi.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/dpi.h"
+ 
+ #include <windows.h>
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/scaling_util.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/scaling_util.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/scaling_util.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/scaling_util.h"
+ 
+ #include <algorithm>
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/topmost_window_finder_win.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/topmost_window_finder_win.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/topmost_window_finder_win.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/topmost_window_finder_win.h"
+ 
+ #include "ui/display/win/screen_win.h"
+@@ -80,4 +86,4 @@ TopMostFinderWin::TopMostFinderWin(HWND 
+ TopMostFinderWin::~TopMostFinderWin() = default;
+ 
+ }  // namespace win
+-}  // namespace display
+\ No newline at end of file
++}  // namespace display
+Index: qtwebengine/src/3rdparty/chromium/ui/display/win/uwp_text_scale_factor.cc
+===================================================================
+--- qtwebengine.orig/src/3rdparty/chromium/ui/display/win/uwp_text_scale_factor.cc
++++ qtwebengine/src/3rdparty/chromium/ui/display/win/uwp_text_scale_factor.cc
+@@ -2,6 +2,12 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
++// Platform-specific code for Win32.
++#undef NTDDI_VERSION
++#undef _WIN32_WINNT
++#define NTDDI_VERSION 0x0A000008
++#define _WIN32_WINNT 0x605
++
+ #include "ui/display/win/uwp_text_scale_factor.h"
+ 
+ #include <windows.h>
