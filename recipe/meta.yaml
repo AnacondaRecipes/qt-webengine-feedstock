@@ -32,7 +32,7 @@ source:
     sha256: 4a9dc893cc0a1695a16102a42ef47ef2e228652891f4afea67fadd452b63656b  # [win]
 
 build:
-  number: 4
+  number: 5
   detect_binary_files_with_prefix: true
   skip: true   # [ppc64le or s390x]
   run_exports:
@@ -149,7 +149,7 @@ requirements:
     - {{ pin_compatible("qt-main", min_pin="x.x", max_pin="x") }}
   run_constrained:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.14") }}  # [osx and x86_64]
-    - qt {{ version }}
+    - qt >=5.15.7,<6
 test:
   requires:
     - {{ compiler('cxx') }}
