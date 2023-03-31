@@ -19,7 +19,8 @@ source:
       - patches/webengine/0003-win.patch             # [win]
       - patches/webengine/0004-win8.patch            # [win]
 
-  - git_url: https://code.qt.io/qt/qtwebengine-chromium.git  # [not win]
+        #- git_url: https://code.qt.io/cgit/qt/qtwebengine-chromium.git  # [not win]
+  - git_url:  https://github.com/qt/qtwebengine-chromium.git # [not win]
     git_rev: 87-based             # [not win]
     folder: qtwebengine-chromium  # [not win]
     patches:                      # [not win]
