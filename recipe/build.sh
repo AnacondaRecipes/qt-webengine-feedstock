@@ -90,7 +90,9 @@ if [[ $(uname) == "Linux" ]]; then
 
     which pkg-config
     export PKG_CONFIG_EXECUTABLE=$(which pkg-config)
-    export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/:$BUILD_PREFIX/lib/pkgconfig/
+    # Currently uses system's libxkbfile library (which needs to be available locally), hence /usr/lib64/pkgconfig 
+    # is added to PKG_CONFIG_PATH to locate it.
+    export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/:$BUILD_PREFIX/lib/pkgconfig/:/usr/lib64/pkgconfig
 
     # Set QMake prefix to $PREFIX
     qmake -set prefix $PREFIX
