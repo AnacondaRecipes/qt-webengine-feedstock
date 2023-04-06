@@ -1,0 +1,13 @@
+diff --git a/chromium/third_party/blink/renderer/platform/text/text_break_iterator_icu.cc b/chromium/third_party/blink/renderer/platform/text/text_break_iterator_icu.cc
+index 0e8c60a3159..0114d851d35 100644
+--- a/chromium/third_party/blink/renderer/platform/text/text_break_iterator_icu.cc
++++ b/chromium/third_party/blink/renderer/platform/text/text_break_iterator_icu.cc
+@@ -120,7 +120,7 @@ enum TextContext { kNoContext, kPriorContext, kPrimaryContext };
+
+ const int kTextBufferCapacity = 16;
+
+-typedef struct {
++typedef struct UTextWithBuffer_tag {
+   DISALLOW_NEW();
+   UText text;
+   UChar buffer[kTextBufferCapacity];

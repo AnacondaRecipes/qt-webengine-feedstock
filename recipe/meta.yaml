@@ -11,21 +11,21 @@ source:
     folder: opengl32sw                                                                                            # [win64]
 
   - url: https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-{{ webengine_version }}.tar.xz
-  # - git_url: https://code.qt.io/cgit/qt/qtwebengine.git
-  #  git_rev: {{ webengine_version }}  # [not win]
     folder: qtwebengine
     patches:
       - patches/webengine/qt_webengine-3.15.9.patch  # [not win]
       - patches/webengine/0003-win.patch             # [win]
       - patches/webengine/0004-win8.patch            # [win]
+      - patches/webengine/qt_remove_override.patch
 
-  - git_url: https://code.qt.io/qt/qtwebengine-chromium.git  # [not win]
+  - git_url: https://code.qt.io/qt/qtwebengine-chromium.git # [not win]
     git_rev: 87-based             # [not win]
     folder: qtwebengine-chromium  # [not win]
     patches:                      # [not win]
       - patches/webengine/0001-aarch64-sys-state-structs.patch  # [aarch64]
       - patches/webengine/qt_3rdparty.patch     # [not win]
       - patches/webengine/qtweb_chromium.patch  # [not win]
+      - patches/webengine/qtweb_chromium_add_tag.patch  # [osx]
 
   - url: https://download.qt.io/development_releases/gnuwin32/gnuwin32.zip  # [win]
     folder: gnuwin32  # [win]
@@ -185,14 +185,15 @@ test:
     - {{ cdt('pcre') }}                  # [linux and not x86_64]
     - {{ cdt('libglvnd-glx') }}          # [linux and not x86_64]
     - make                               # [unix]
-  script: run_webengine_test.sh          # [not win]
-  script: run_webengine_test.bat         # [win]
   files:
     - test/webengine/main-qtwebengine.cpp
     - test/webengine/qml.qrc
     - test/webengine/qrc_qml.cpp
     - test/webengine/main.qml
     - test/webengine/qtwebengine.pro
+  commands:
+    - {{ RECIPE_DIR }}/run_webengine_test.bat  # [win]
+    - bash {{ RECIPE_DIR }}/run_webengine_test.sh  # [not win]
 
 about:
   home: https://www.qt.io/
