@@ -32,8 +32,7 @@ source:
     sha256: 4a9dc893cc0a1695a16102a42ef47ef2e228652891f4afea67fadd452b63656b  # [win]
 
 build:
-  #trigger 1
-  number: 6
+  number: 7
   detect_binary_files_with_prefix: true
   skip: true   # [ppc64le or s390x]
   run_exports:
@@ -138,16 +137,17 @@ requirements:
     # - icu
     # - libpng
     # - libiconv
-    # - nspr                               # [unix]
-    # - nss                                # [unix]
+    - nspr                               # [unix]
+    - nss                                # [unix]
     # - sqlite
     # - zlib
     - libxcb                             # [linux]
     - qt-main
     # - libwebp
-    - openssl                            # [win]
+    - openssl {{ openssl }}
   run:
     - {{ pin_compatible("qt-main", min_pin="x.x", max_pin="x") }}
+    - openssl 3.*
   run_constrained:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.14") }}  # [osx and x86_64]
     - qt >=5.15.2,<6
