@@ -152,8 +152,8 @@ if [[ $(uname) == "Darwin" ]]; then
         CONFIG+="warn_off" \
         QMAKE_CFLAGS_WARN_ON="-w" \
         QMAKE_CXXFLAGS_WARN_ON="-w" \
-        QMAKE_CFLAGS+="-Wno-everything" \
-        QMAKE_CXXFLAGS+="-Wno-everything" \
+        QMAKE_CFLAGS+="-Wno-everything -isystem=${PREFIX}/include" \
+        QMAKE_CXXFLAGS+="-Wno-everything -isystem=${PREFIX}/include" \
         $EXTRA_FLAGS \
         QMAKE_LFLAGS+="-w -Wno-everything -Wl,-rpath,$PREFIX/lib -L$PREFIX/lib" \
         PKG_CONFIG_EXECUTABLE=$(which pkg-config) \
