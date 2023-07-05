@@ -2,6 +2,13 @@ set -exou
 
 export NINJAFLAGS=-j3
 
+set -x
+ls -la $PREFIX/include/c++/v1/
+ls -la $PREFIX/include/c++/v1/__iterator
+ls -la $BUILD_PREFIX/include/c++/v1/
+ls -la $BUILD_PREFIX/include/c++/v1/__iterator
+set +x
+
 pushd qtwebengine-chromium
 
   if [[ $(uname) == "Darwin" ]]; then
