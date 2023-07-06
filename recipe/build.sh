@@ -2,17 +2,6 @@ set -exou
 
 export NINJAFLAGS=-j3
 
-echo '-asdadsafinhoih124nklhsiohl'
-echo $PREFIX
-set -x
-ls -la $PREFIX/include/c++/v1/
-ls -la $PREFIX/include/c++/v1/__iterator
-ls -la $BUILD_PREFIX/include/c++/v1/
-ls -la $BUILD_PREFIX/include/c++/v1/__iterator
-set +x
-
-echo "Bash: $(which bash)"
-
 pushd qtwebengine-chromium
 
   if [[ $(uname) == "Darwin" ]]; then
@@ -26,10 +15,6 @@ pushd qtwebengine-chromium
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
 
-    echo '++++-----lklkhhasfgs'
-    echo "${PREFIX}/include"
-    echo "NR==79{\$0=\"    \\\"-isystem=${PREFIX}/include\\\",\n  ]\"}1"
-    echo '++++-----lklkhhasfgs'
     awk 'NR==79{$0="    \"-isystem\",\n    \"/Users/builder/jcmorin/miniconda/envs/qt-webengine/include/c++/v1\",\n    \"-nostdinc++\",\n  ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
@@ -75,6 +60,14 @@ if [[ $target_platform == osx-* ]]; then
     fi
     export CONFIG_SHELL="/bin/bash"
     export SHELL="/bin/bash" 
+
+    cat > asdasdasd << EOF
+PREFIX: $PREFIX
+BUILD_PREFIX: $BUILD_PREFIX
+EOF
+    ls -la $BUILD_PREFIX/bin
+
+    cat asdasdasd
 fi
 
 # required to populate include ...
