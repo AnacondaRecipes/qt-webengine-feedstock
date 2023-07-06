@@ -92,6 +92,7 @@ requirements:
     - {{ cdt('cups-devel') }}            # [linux]
     - {{ cdt('libxcb') }}                # [linux]
     - {{ cdt('expat-devel') }}           # [linux and not aarch64]
+    - {{ cdt('libxkbfile-devel') }}      # [linux]
     - pkg-config                         # [unix]
     - make                               # [unix]
     - cmake
@@ -186,6 +187,7 @@ test:
     - {{ cdt('expat-devel') }}           # [linux and not aarch64]
     - {{ cdt('pcre') }}                  # [linux and not x86_64]
     - {{ cdt('libglvnd-glx') }}          # [linux and not x86_64]
+    - {{ cdt('libxkbfile-devel') }}      # [linux]
     - make                               # [unix]
   files:
     - test/webengine/main-qtwebengine.cpp
