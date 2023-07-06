@@ -16,6 +16,10 @@ pushd qtwebengine-chromium
     awk 'NR==77{$0="    rebase_path(\"'$CONDA_BUILD_SYSROOT'\", root_build_dir),"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
+
+    awk 'NR==79{$0="    \"-isystem='$PREFIX/include'\",\n  ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    rm chromium/build/config/mac/BUILD.gn
+    mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
   fi
   # we don't want to play with git ... too slow ...
 popd
