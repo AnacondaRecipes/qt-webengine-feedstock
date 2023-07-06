@@ -21,11 +21,16 @@ pushd qtwebengine-chromium
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
 
+
+    awk 'NR==95{$0="  ldflags += [ \"-L/Users/builder/jcmorin/miniconda/envs/qt-webengine/lib\", \"-nostdlib++\", \"-Wl,-rpath,/Users/builder/jcmorin/miniconda/envs/qt-webengine/lib\", \"-lc++\" ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    rm chromium/build/config/mac/BUILD.gn
+    mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
+
     echo '++++-----lklkhhasfgs'
     echo "${PREFIX}/include"
     echo "NR==79{\$0=\"    \\\"-isystem=${PREFIX}/include\\\",\n  ]\"}1"
     echo '++++-----lklkhhasfgs'
-    awk "NR==79{\$0=\"    \\\"-isystem\\\",\n    \\\"/Users/builder/jcmorin/miniconda/envs/qt-webengine/include/c++/v1\\\",\n    \\\"-nostdinc++\\\",\n    \\\"-nostdlib++\\\",\n  ]\"}1" chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    awk 'NR==79{$0="    \"-isystem\",\n    \"/Users/builder/jcmorin/miniconda/envs/qt-webengine/include/c++/v1\",\n    \"-nostdinc++\",\n  ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
   fi
