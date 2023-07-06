@@ -2,6 +2,8 @@ set -exou
 
 export NINJAFLAGS=-j3
 
+echo '-asdadsafinhoih124nklhsiohl'
+echo $PREFIX
 set -x
 ls -la $PREFIX/include/c++/v1/
 ls -la $PREFIX/include/c++/v1/__iterator
@@ -13,11 +15,15 @@ pushd qtwebengine-chromium
 
   if [[ $(uname) == "Darwin" ]]; then
     # Ensure that Chromium is built using the correct sysroot in Mac
-    awk 'NR==77{$0="    rebase_path(\"'$CONDA_BUILD_SYSROOT'\", root_build_dir),"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    awk 'NR==77{$0="    \"'$CONDA_BUILD_SYSROOT'\","}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
 
-    awk 'NR==79{$0="    \"-isystem='$PREFIX/include'\",\n  ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    echo '++++-----lklkhhasfgs'
+    echo "${PREFIX}/include"
+    echo "NR==79{\$0=\"    \\\"-isystem=${PREFIX}/include\\\",\n  ]\"}1"
+    echo '++++-----lklkhhasfgs'
+    awk "NR==79{\$0=\"    \\\"-isystem=${PREFIX}/include\\\",\n  ]\"}1" chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
   fi
@@ -29,6 +35,9 @@ pushd src/3rdparty
   # copy the patched 3rdparty stuff ... and make sure we don't play with git
   rm -rf *
   cp -R ../../../qtwebengine-chromium/* .
+
+  echo 'Content of chromium/build/config/mac/BUILD.gn'
+  cat chromium/build/config/mac/BUILD.gn
 popd
 
 if [[ $target_platform == osx-* ]]; then
