@@ -27,9 +27,6 @@ pushd src/3rdparty
   # copy the patched 3rdparty stuff ... and make sure we don't play with git
   rm -rf *
   cp -R ../../../qtwebengine-chromium/* .
-
-  echo 'Content of chromium/build/config/mac/BUILD.gn'
-  cat chromium/build/config/mac/BUILD.gn
 popd
 
 if [[ $target_platform == osx-* ]]; then
@@ -60,14 +57,6 @@ if [[ $target_platform == osx-* ]]; then
     fi
     export CONFIG_SHELL="/bin/bash"
     export SHELL="/bin/bash" 
-
-    cat > asdasdasd << EOF
-PREFIX: $PREFIX
-BUILD_PREFIX: $BUILD_PREFIX
-EOF
-    ls -la $BUILD_PREFIX/bin
-
-    cat asdasdasd
 fi
 
 # required to populate include ...
