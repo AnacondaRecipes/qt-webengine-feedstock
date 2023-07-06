@@ -11,6 +11,7 @@ source:
     folder: opengl32sw                                                                                            # [win64]
 
   - url: https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-{{ webengine_version }}.tar.xz
+    sha256: 4b61afcd5b5452d9b3178f28335fb455da543170220f72dba85fe6aa8e76fa39
     folder: qtwebengine
     patches:
       - patches/webengine/qt_webengine-3.15.9.patch  # [not win]
