@@ -10,14 +10,13 @@ pushd qtwebengine-chromium
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
 
+    # awk 'NR==95{$0="  ldflags += [ \"-L/Users/builder/jcmorin/miniconda/envs/qt-webengine/lib\", \"-nostdlib++\", \"-Wl,-rpath,/Users/builder/jcmorin/miniconda/envs/qt-webengine/lib\", \"-lc++\" ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    # rm chromium/build/config/mac/BUILD.gn
+    # mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
 
-    awk 'NR==95{$0="  ldflags += [ \"-L/Users/builder/jcmorin/miniconda/envs/qt-webengine/lib\", \"-nostdlib++\", \"-Wl,-rpath,/Users/builder/jcmorin/miniconda/envs/qt-webengine/lib\", \"-lc++\" ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
-    rm chromium/build/config/mac/BUILD.gn
-    mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
-
-    awk 'NR==79{$0="    \"-isystem\",\n    \"/Users/builder/jcmorin/miniconda/envs/qt-webengine/include/c++/v1\",\n    \"-nostdinc++\",\n  ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
-    rm chromium/build/config/mac/BUILD.gn
-    mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
+    # awk 'NR==79{$0="    \"-isystem\",\n    \"/Users/builder/jcmorin/miniconda/envs/qt-webengine/include/c++/v1\",\n    \"-nostdinc++\",\n  ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    # rm chromium/build/config/mac/BUILD.gn
+    # mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
   fi
   # we don't want to play with git ... too slow ...
 popd
@@ -154,8 +153,8 @@ if [[ $(uname) == "Darwin" ]]; then
         CONFIG+="warn_off" \
         QMAKE_CFLAGS_WARN_ON="-w" \
         QMAKE_CXXFLAGS_WARN_ON="-w" \
-        QMAKE_CFLAGS+="-Wno-everything -isystem=${PREFIX}/include" \
-        QMAKE_CXXFLAGS+="-Wno-everything -isystem=${PREFIX}/include" \
+        QMAKE_CFLAGS+="-Wno-everything" \
+        QMAKE_CXXFLAGS+="-Wno-everything" \
         $EXTRA_FLAGS \
         QMAKE_LFLAGS+="-w -Wno-everything -Wl,-rpath,$PREFIX/lib -L$PREFIX/lib" \
         PKG_CONFIG_EXECUTABLE=$(which pkg-config) \
