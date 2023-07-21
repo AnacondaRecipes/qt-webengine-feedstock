@@ -3,6 +3,8 @@ build_parameters:
   - ""
 
 channels:
-  jcmorin-ana-org: qt
+  icu73: icu73
+
+aggregate_branch: icu-73.1
 
 upload_without_merge: true
