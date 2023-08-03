@@ -1119,8 +1119,8 @@ Index: qtwebengine/src/3rdparty/chromium/base/win/windows_version.cc
 +// Platform-specific code for Win32.
 +#undef NTDDI_VERSION
 +#undef _WIN32_WINNT
-+#define NTDDI_VERSION 0xA00
-+#define _WIN32_WINNT 0xA00
++#define NTDDI_VERSION NTDDI_WIN8
++#define _WIN32_WINNT _WIN32_WINNT_WIN8
 +
  #include "base/win/windows_version.h"
  

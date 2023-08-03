@@ -149,7 +149,7 @@ requirements:
     - openssl {{ openssl }}
   run:
     - {{ pin_compatible("qt-main", min_pin="x.x", max_pin="x") }}
-    - openssl
+    - openssl  # exact pin handled through openssl run_exports
   run_constrained:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.14") }}  # [osx and x86_64]
     - qt >=5.15.2,<6
