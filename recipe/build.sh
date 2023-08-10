@@ -148,6 +148,8 @@ if [[ $(uname) == "Darwin" ]]; then
 
     # sed -i '' -e 's/-Werror//' $PREFIX/mkspecs/features/qt_module_headers.prf
 
+    # TODO: Figure out why this isn't printing a summary on osx...
+    # While being there, we should also figure out why "set -x" doens't seem to be applied...
     qmake QMAKE_LIBDIR=${PREFIX}/lib \
         INCLUDEPATH+="${PREFIX}/include" \
         CONFIG+="warn_off" \
