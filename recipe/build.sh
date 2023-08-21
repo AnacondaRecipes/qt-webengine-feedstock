@@ -6,9 +6,17 @@ pushd qtwebengine-chromium
 
   if [[ $(uname) == "Darwin" ]]; then
     # Ensure that Chromium is built using the correct sysroot in Mac
-    awk 'NR==77{$0="    rebase_path(\"'$CONDA_BUILD_SYSROOT'\", root_build_dir),"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    awk 'NR==77{$0="    \"'$CONDA_BUILD_SYSROOT'\","}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
     rm chromium/build/config/mac/BUILD.gn
     mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
+
+    # awk 'NR==95{$0="  ldflags += [ \"-L/Users/builder/jcmorin/miniconda/envs/qt-webengine/lib\", \"-nostdlib++\", \"-Wl,-rpath,/Users/builder/jcmorin/miniconda/envs/qt-webengine/lib\", \"-lc++\" ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    # rm chromium/build/config/mac/BUILD.gn
+    # mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
+
+    # awk 'NR==79{$0="    \"-isystem\",\n    \"/Users/builder/jcmorin/miniconda/envs/qt-webengine/include/c++/v1\",\n    \"-nostdinc++\",\n  ]"}1' chromium/build/config/mac/BUILD.gn > chromium/build/config/mac/BUILD.gn.tmp
+    # rm chromium/build/config/mac/BUILD.gn
+    # mv chromium/build/config/mac/BUILD.gn.tmp chromium/build/config/mac/BUILD.gn
   fi
   # we don't want to play with git ... too slow ...
 popd
@@ -140,6 +148,8 @@ if [[ $(uname) == "Darwin" ]]; then
 
     # sed -i '' -e 's/-Werror//' $PREFIX/mkspecs/features/qt_module_headers.prf
 
+    # TODO: Figure out why this isn't printing a summary on osx...
+    # While being there, we should also figure out why "set -x" doens't seem to be applied...
     qmake QMAKE_LIBDIR=${PREFIX}/lib \
         INCLUDEPATH+="${PREFIX}/include" \
         CONFIG+="warn_off" \

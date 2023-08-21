@@ -1,4 +1,4 @@
-pushd test/webengine
+pushd test\webengine
 if exist .qmake.stash del /a .qmake.stash
 
 :: Only test that this builds

@@ -11,6 +11,7 @@ source:
     folder: opengl32sw                                                                                            # [win64]
 
   - url: https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-{{ webengine_version }}.tar.xz
+    sha256: 4b61afcd5b5452d9b3178f28335fb455da543170220f72dba85fe6aa8e76fa39
     folder: qtwebengine
     patches:
       - patches/webengine/qt_webengine-3.15.9.patch  # [not win]
@@ -32,8 +33,7 @@ source:
     sha256: 4a9dc893cc0a1695a16102a42ef47ef2e228652891f4afea67fadd452b63656b  # [win]
 
 build:
-  #trigger 1
-  number: 6
+  number: 7
   detect_binary_files_with_prefix: true
   skip: true   # [ppc64le or s390x]
   run_exports:
@@ -91,6 +91,7 @@ requirements:
     - {{ cdt('cups-devel') }}            # [linux]
     - {{ cdt('libxcb') }}                # [linux]
     - {{ cdt('expat-devel') }}           # [linux and not aarch64]
+    - {{ cdt('libxkbfile-devel') }}      # [linux]
     - pkg-config                         # [unix]
     - make                               # [unix]
     - cmake
@@ -136,18 +137,25 @@ requirements:
     - expat                              # [linux]
     - libevent                           # [linux]
     # - icu
-    # - libpng
+    # On linux it seems to be compiling with the system libpng while on mac and Windows
+    # it's compiling its own libpng. This should eventually be sorted out...
+    - libpng {{ libpng }}                # [linux]
     # - libiconv
-    # - nspr                               # [unix]
-    # - nss                                # [unix]
+    - nspr                               # [linux]
+    - nss                                # [linux]
     # - sqlite
-    # - zlib
+    - zlib {{ zlib }}                    # [linux]
     - libxcb                             # [linux]
     - qt-main
     # - libwebp
-    - openssl                            # [win]
   run:
     - {{ pin_compatible("qt-main", min_pin="x.x", max_pin="x") }}
+    # Pinned through libpng run_exports
+    - libpng  # [linux]
+    - nspr  # [linux]
+    - nss  # [linux]
+    # Pinned through zlib run_exports
+    - zlib  # [linux]
   run_constrained:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.14") }}  # [osx and x86_64]
     - qt >=5.15.2,<6
@@ -184,6 +192,7 @@ test:
     - {{ cdt('expat-devel') }}           # [linux and not aarch64]
     - {{ cdt('pcre') }}                  # [linux and not x86_64]
     - {{ cdt('libglvnd-glx') }}          # [linux and not x86_64]
+    - {{ cdt('libxkbfile-devel') }}      # [linux]
     - make                               # [unix]
   files:
     - test/webengine/main-qtwebengine.cpp
