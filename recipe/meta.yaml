@@ -146,7 +146,7 @@ requirements:
     # - sqlite
     - zlib {{ zlib }}                    # [linux]
     - libxcb                             # [linux]
-    - qt-main
+    - qt-main 5.15
     # - libwebp
   run:
     - {{ pin_compatible("qt-main", min_pin="x.x", max_pin="x") }}
