@@ -20,7 +20,9 @@ source:
       - patches/webengine/qt_remove_override.patch
 
   - git_url: https://code.qt.io/qt/qtwebengine-chromium.git # [not win]
-    git_rev: 87-based             # [not win]
+    #git_rev: 87-based             # [not win]
+    # reuse same commit as previous build b7
+    git_rev: 8df91f886e7fffb61408e2426f8a90d763a3b6ea             # [not win]
     folder: qtwebengine-chromium  # [not win]
     patches:                      # [not win]
       - patches/webengine/0001-aarch64-sys-state-structs.patch  # [aarch64]
@@ -36,6 +38,8 @@ build:
   number: 8
   detect_binary_files_with_prefix: true
   skip: true   # [ppc64le or s390x]
+  # skipping win and osx temporarily. The rebuild b8 is for libxml2 which is only used on linux.
+  skip: true   # [win or osx]
   run_exports:
     - {{ pin_subpackage('qt-webengine', max_pin='x.x') }}
   missing_dso_whitelist:  # [osx]
