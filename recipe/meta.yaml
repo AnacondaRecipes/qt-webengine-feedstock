@@ -99,7 +99,7 @@ requirements:
     - pkg-config                         # [unix]
     - make                               # [unix]
     - cmake
-    - ninja
+    - ninja 1.10.2
     - ruby >=2.5                         # [linux]
     - bison                              # [linux]
     - flex                               # [linux]
