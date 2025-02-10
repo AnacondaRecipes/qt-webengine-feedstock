@@ -20,7 +20,9 @@ source:
       - patches/webengine/qt_remove_override.patch
 
   - git_url: https://code.qt.io/qt/qtwebengine-chromium.git # [not win]
-    git_rev: 87-based             # [not win]
+    #git_rev: 87-based             # [not win]
+    # reuse same commit as previous build b7
+    git_rev: 8df91f886e7fffb61408e2426f8a90d763a3b6ea             # [not win]
     folder: qtwebengine-chromium  # [not win]
     patches:                      # [not win]
       - patches/webengine/0001-aarch64-sys-state-structs.patch  # [aarch64]
@@ -33,9 +35,11 @@ source:
     sha256: 4a9dc893cc0a1695a16102a42ef47ef2e228652891f4afea67fadd452b63656b  # [win]
 
 build:
-  number: 7
+  number: 8
   detect_binary_files_with_prefix: true
   skip: true   # [ppc64le or s390x]
+  # skipping win and osx temporarily. The rebuild b8 is for libxml2 which is only used on linux.
+  skip: true   # [win or osx]
   run_exports:
     - {{ pin_subpackage('qt-webengine', max_pin='x.x') }}
   missing_dso_whitelist:  # [osx]
@@ -94,24 +98,24 @@ requirements:
     - {{ cdt('libxkbfile-devel') }}      # [linux]
     - pkg-config                         # [unix]
     - make                               # [unix]
-    - cmake
-    - ninja
+    - cmake 3.26.4
+    - ninja 1.10.2
     - ruby >=2.5                         # [linux]
-    - bison                              # [linux]
-    - flex                               # [linux]
-    - gperf                              # [linux]
+    - bison 3.7.5                        # [linux]
+    - flex 2.6.4                         # [linux]
+    - gperf 3.1                          # [linux]
     - perl 5.*
-    - readline                           # [linux]
+    - readline 8.1                       # [linux]
     - jom                                # [win]
-    - nodejs >=16
-    - libtool  # [unix]
+    - nodejs 18.16
+    - libtool 2.4.6 # [unix]
     - sed   # [unix]
     - gawk  # [unix]
     - llvm-tools  # [osx]
-    - binutils    # [linux]
+    - binutils 2.38   # [linux]
     - ldid  # [osx]
   host:
-    - binutils    # [linux]
+    - binutils 2.38   # [linux]
     - llvmdev     # [osx]
     - clangdev    # [osx]
     - llvm-tools  # [osx]
@@ -125,28 +129,28 @@ requirements:
     - pulseaudio                         # [linux and not (aarch64 or x86_64)]
     # - gstreamer
     - pthread-stubs                      # [linux]
-    - dbus                               # [linux]
-    - fontconfig                         # [linux]
-    - freetype                           # [linux]
+    - dbus 1.13.18                       # [linux]
+    - fontconfig 2.14.1                  # [linux]
+    - freetype 2.10.4                    # [linux]
     # - gst-plugins-base
     # - gstreamer
     - libglib                            # [linux and not (aarch64 or x86_64)]
-    - glib                               # [linux and (aarch64 or x86_64)]
-    - libxml2  2.10                      # [linux]
-    - libxkbcommon                       # [linux]
-    - expat                              # [linux]
-    - libevent                           # [linux]
+    - glib 2.69.1                        # [linux and (aarch64 or x86_64)]
+    - libxml2  2.13                      # [linux]
+    - libxkbcommon 1.0.1                 # [linux]
+    - expat 2.6.4                        # [linux]
+    - libevent 2.1.12                    # [linux]
     # - icu
     # On linux it seems to be compiling with the system libpng while on mac and Windows
     # it's compiling its own libpng. This should eventually be sorted out...
     - libpng {{ libpng }}                # [linux]
     # - libiconv
-    - nspr                               # [linux]
-    - nss                                # [linux]
+    - nspr 4.35                          # [linux]
+    - nss 3.89.1                         # [linux]
     # - sqlite
     - zlib {{ zlib }}                    # [linux]
-    - libxcb                             # [linux]
-    - qt-main
+    - libxcb 1.15                        # [linux]
+    - qt-main 5.15
     # - libwebp
   run:
     - {{ pin_compatible("qt-main", min_pin="x.x", max_pin="x") }}

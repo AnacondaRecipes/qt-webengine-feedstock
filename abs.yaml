@@ -3,6 +3,6 @@ build_parameters:
   - "--skip-existing"
 
 channels:
-  jcmorin-ana-org: qt
+  cbouss: qt
 
 upload_without_merge: true
