@@ -127,7 +127,7 @@ requirements:
     # - gstreamer
     - pthread-stubs                      # [linux]
     - dbus 1.13.18                       # [linux]
-    - fontconfig 2.14.1                  # [linux]
+    - fontconfig 2.17.1                  # [linux]
     - freetype 2.10.4                    # [linux]
     # - gst-plugins-base
     # - gstreamer
@@ -146,7 +146,7 @@ requirements:
     - nss 3.89.1                         # [linux]
     # - sqlite
     - zlib {{ zlib }}                    # [linux]
-    - libxcb 1.15                        # [linux]
+    - libxcb 1.17                        # [linux]
     - qt-main 5.15
     # - libwebp
   run:
