@@ -126,7 +126,7 @@ requirements:
     - pulseaudio                         # [linux and not (aarch64 or x86_64)]
     # - gstreamer
     - pthread-stubs                      # [linux]
-    - dbus 1.13.18                       # [linux]
+    - dbus 1.16.2                       # [linux]
     - fontconfig 2.17.1                  # [linux]
     - freetype 2.10.4                    # [linux]
     # - gst-plugins-base
@@ -135,7 +135,7 @@ requirements:
     - glib 2.69.1                        # [linux and (aarch64 or x86_64)]
     - libxml2  2.14                      # [linux]
     - libxkbcommon 1.13.1                # [linux]
-    - expat 2.6.4                        # [linux]
+    - expat 2.7.5                        # [linux]
     - libevent 2.1.12                    # [linux]
     # - icu
     # On linux it seems to be compiling with the system libpng while on mac and Windows
