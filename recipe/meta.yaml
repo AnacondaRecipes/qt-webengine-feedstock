@@ -126,9 +126,9 @@ requirements:
     - pulseaudio                         # [linux and not (aarch64 or x86_64)]
     # - gstreamer
     - pthread-stubs                      # [linux]
-    - dbus 1.16.2                       # [linux]
+    - dbus 1.16.2                        # [linux]
     - fontconfig 2.17.1                  # [linux]
-    - freetype 2.10.4                    # [linux]
+    - freetype 2.14.1                    # [linux]
     # - gst-plugins-base
     # - gstreamer
     - libglib                            # [linux and not (aarch64 or x86_64)]
