@@ -1,5 +1,4 @@
 {% set version = "5.15.9" %}
-{% set webengine_version = "5.15.9" %}
 
 package:
   name: qt-webengine
@@ -10,7 +9,7 @@ source:
     sha256: 2a0d2f92c60e0962ef5f6039d3793424c6f39e49ba27ac04a5b21ca4ae012e15                                      # [win64]
     folder: opengl32sw                                                                                            # [win64]
 
-  - url: https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-{{ webengine_version }}.tar.xz
+  - url: https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-{{ version }}.tar.xz
     sha256: 4b61afcd5b5452d9b3178f28335fb455da543170220f72dba85fe6aa8e76fa39
     folder: qtwebengine
     patches:
@@ -35,7 +34,7 @@ source:
     sha256: 4a9dc893cc0a1695a16102a42ef47ef2e228652891f4afea67fadd452b63656b  # [win]
 
 build:
-  number: 8
+  number: 9
   detect_binary_files_with_prefix: true
   skip: true   # [ppc64le or s390x]
   # skipping win and osx temporarily. The rebuild b8 is for libxml2 which is only used on linux.
@@ -51,8 +50,6 @@ build:
 
 requirements:
   build:
-    - patch  # [unix]
-    - m2-patch  # [win]
     - git    # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -129,16 +126,16 @@ requirements:
     - pulseaudio                         # [linux and not (aarch64 or x86_64)]
     # - gstreamer
     - pthread-stubs                      # [linux]
-    - dbus 1.13.18                       # [linux]
-    - fontconfig 2.14.1                  # [linux]
-    - freetype 2.10.4                    # [linux]
+    - dbus 1.16.2                        # [linux]
+    - fontconfig 2.17.1                  # [linux]
+    - freetype 2.14.1                    # [linux]
     # - gst-plugins-base
     # - gstreamer
     - libglib                            # [linux and not (aarch64 or x86_64)]
     - glib 2.69.1                        # [linux and (aarch64 or x86_64)]
-    - libxml2  2.13                      # [linux]
-    - libxkbcommon 1.0.1                 # [linux]
-    - expat 2.6.4                        # [linux]
+    - libxml2  2.14                      # [linux]
+    - libxkbcommon 1.13.1                # [linux]
+    - expat 2.7.5                        # [linux]
     - libevent 2.1.12                    # [linux]
     # - icu
     # On linux it seems to be compiling with the system libpng while on mac and Windows
@@ -149,7 +146,7 @@ requirements:
     - nss 3.89.1                         # [linux]
     # - sqlite
     - zlib {{ zlib }}                    # [linux]
-    - libxcb 1.15                        # [linux]
+    - libxcb 1.17                        # [linux]
     - qt-main 5.15
     # - libwebp
   run:

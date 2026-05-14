@@ -2,7 +2,7 @@
 build_parameters:
   - "--skip-existing"
 
-channels:
-  cbouss: qt
+# channels:
+#   cbouss: qt
 
 upload_without_merge: true
